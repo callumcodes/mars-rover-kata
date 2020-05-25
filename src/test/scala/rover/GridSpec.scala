@@ -9,6 +9,7 @@ class GridSpec extends AnyWordSpec with Matchers {
   val grid = new Grid {
     override val boundaryX = 10
     override val boundaryY = 10
+    override val obstacles: List[Position] = Nil
   }
 
   "traverse" when {
@@ -62,12 +63,25 @@ class GridSpec extends AnyWordSpec with Matchers {
       }
     }
 
-
     "moving outside the south boundary" should {
       "wrap around to the north boundary" in {
         grid.traverse(Position(0, 10), South) shouldBe Position(0, 0)
       }
     }
 
+    "moving into an obstacle" should {
+      "not update the position" in {
+        val initialPosition = Position(0, 0)
+        val mountain = Position(0, 1)
+        val gridWithMountain: Grid = new Grid {
+          override def boundaryX: Int = 10
+          override def boundaryY: Int = 10
+
+          override def obstacles: List[Position] = List(mountain)
+        }
+
+        gridWithMountain.traverse(initialPosition, South) shouldBe initialPosition
+      }
+    }
   }
 }

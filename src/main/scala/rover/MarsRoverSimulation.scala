@@ -20,10 +20,15 @@ object MarsRoverSimulation {
 
   def apply(gridSize: Int): MarsRoverSimulation = {
     require(gridSize > 0)
-    new MarsRoverSimulation(Rover(direction = South, Position(0, 0)), new Grid {
+
+    val rover = Rover(direction = South, Position(0, 0))
+    val mapOfMars: Grid = new Grid {
+      override def obstacles: List[Position] = List.empty
       override val boundaryX: Int = gridSize
       override val boundaryY: Int = gridSize
-    })
+    }
+
+    new MarsRoverSimulation(rover, mapOfMars)
   }
 
 }

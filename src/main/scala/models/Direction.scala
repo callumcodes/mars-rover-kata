@@ -7,6 +7,8 @@ case object East extends Direction
 case object South extends Direction
 case object West extends Direction
 
+
+import scala.math.floorMod
 object Direction {
   def clockwise(direction: Direction): Direction = {
     direction match {
