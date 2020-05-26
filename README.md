@@ -1,6 +1,6 @@
 # Mars Rover Kata
 
-A kata that implements a simulation of the Mars Rover
+A kata that implements a simulation of the Mars Rover. Only Part 1 has been implemented as well as mountains, due to the time constraint.
 
 ## Brief
 
@@ -26,6 +26,12 @@ Output all the instructions and moves carried out by the rover to get from one g
 
 * The rover cannot move diagonally, though could be easily implemented.
 * When the rover moves, it moves by one square.
+
+## Improvements to be made
+
+* Generator driven property tests, they are worded in a way where this would be simple to slot in
+* The rover should move in 8 directions, or even at any angle.
+* The most efficient pathfinding algorithm is A*, though it's not considered "simple" as per the brief and may be unnecessary since the rover can move to the other side of the map to avoid obstacles.
 
 ## Running the tests
 
