@@ -5,3 +5,6 @@ project/boot/
 .history
 .cache
 .idea
+.bloop
+.metals
+project/metals.sbt
